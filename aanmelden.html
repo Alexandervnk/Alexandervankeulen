@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulier</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="login">
+
+    <header>
+
+        <!-- Universele welkoms tekst   -->
+        <div class="tekst-header">
+            <h6>Welcome to</h6>
+            <h1>99 Stories</h1>
+            <h6>powered by Transavia</h6>
+        </div>
+
+        <!-- Desktop navigatie   -->
+
+        <nav id="desktopnav">
+            <ul>
+                <li><button id="desktop-filter">Filter/Sorteer</button></li>
+                <li>
+
+                    <a href="login.html">
+            <img src="assets/images/Profileicon-white.png" alt="profileicon"></a>
+                </li>
+
+                <li>
+                    <a href="index.html">
+               <img src="assets/images/homeicon-white.png" alt="homeicon"></a>
+                </li>
+
+                <li>
+                    <a href="favoriete.html">
+                    <img src="assets/images/heart-white.png" alt="favoriteicon"></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Mobiele navigatie   -->
+
+        <nav id="mobilenav">
+            <!-- container -->
+            <ul>
+                <!-- container voor flexbox-->
+                <li>
+                    <!-- flexbox item -->
+                    <a href="login.html">
+                    <img src="assets/images/Profileicon-white.png" alt="profileicon"></a>
+                </li>
+
+                <li>
+                    <!-- flexbox item -->
+                    <a href="index.html">
+                    <img src="assets/images/homeicon-white.png" alt="homeicon"></a>
+                </li>
+
+                <li>
+                    <!-- flexbox item -->
+                    <a href="favoriete.html">
+                    <img src="assets/images/heart-white.png" alt="favoriteicon"></a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+ 
+  <div class="aanmelding-container"> 
+    <form action="form-page.html" method="post">
+
+        <fieldset>
+
+            <legend>Nieuwe gebruiker</legend>
+
+            <label for="bestaande-mail/gebruikersnaam">E-mail of gebruikersnaam</label>
+            <input id="bestaande-mail/gebruikersnaam" type="text" placeholder="E-mail of gebruikernaam">
+
+            <label for="bestaandpassword">Wachtwoord</label>
+            <input id="bestaandpassword" type="password" placeholder="Wachtwoord" pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+            
+            <label for="Email">email</label>
+            <input id="Email" type="Email" placeholder="Email" pattern="[A-Za-z]{3}" title="Three letter country code">>
+            
+            <label for="Man">Man</label>
+            <input id="Man" type=checkbox placeholder="Man">
+            
+            <label for="Man">Vrouw</label>
+            <input id="Vrouw" type=checkbox placeholder="Vrouw">
+            
+            <label for="Geboortedatum">Geboortedatum</label>
+            <input id="Geboortedatum" type=date  placeholder="Email">
+            
+            <label for="Woonplaats">Woonplaats</label>
+            <input id="Woonplaats" type=text  placeholder="Woonplaats">
+
+            <label for="tel">Telefoon nummer:</label>
+            <input type="tel" name="tel" id="tel" placeholder="06-1234567">
+            
+            <label>Je favoriete genre:
+                  <input type="text" name="genres" list="genres"></label>
+
+            <button><a href="index.html">Maak aan</a></button>
+
+        </fieldset>
+    </form>
+    </div>
+        <div class="background-form"></div>
+</body>
+</html>

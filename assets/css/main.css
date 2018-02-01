@@ -1,0 +1,1716 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*===============================================================
+                Custom stylesheet
+===============================================================*/
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+/*==================================
+                Font
+====================================*/
+
+@font-face {
+    font-family: 'Nexa';
+    src: url("nexa/Nexa_Light.woff2") format("woff2"), url("nexa/Nexa_Light.ttf") format("truetype");
+    font-weight: thin;
+    font-style: thin;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url("nexa/Nexa_Regular.woff2") format("woff2"), url("nexa/Nexa_Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url("nexa/Nexa_Bold.woff2") format("woff2"), url("nexa/Nexa_Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: bold;
+    font-stretch: normal;
+}
+
+/*==================================
+                Mobile Nav
+====================================*/
+
+#mobilenav {
+	position: fixed;
+	left:0;
+	bottom: 0;
+	width: 100%;
+	border-radius: 0.625em 0.625em 0 0;
+	background-color: #2800A0;
+	z-index: 10; /*	hiermee zet je navigatie boven alles*/
+}
+
+#mobilenav > ul {
+    height: 3em;
+    /*Hoogte van de mobile navigatie.*/
+    display: flex;
+    /*Hier worden de mobiele menu items in een display flex geplaatst.*/
+    flex-flow: row nowrap;
+    /*links naar rechts op een enkele regel dus nowrap is op een regel blijven*/
+    justify-content: space-evenly;
+    /*justify is horizontaal*/
+    align-items: center;
+    /*align is verticaal*/
+}
+
+#mobilenav img {
+	height: 1.8em;
+	width: 1.8em;
+}
+
+/*==================================
+        Desktop Nav/ tablet nav
+====================================*/
+
+#desktopnav {
+	position: fixed;
+	right: 2%;
+	top: 2%;
+	width: 10em;
+	height: 2.5em;
+    background-color: rgba(40, 0, 160, 0.7); /*0.5 is opacity ( alpha )*/
+    border-radius: 10px;
+    padding: 0.3em 0.3em;
+	z-index: 10; /*	hiermee zet je navigatie boven alles*/
+}
+
+#desktopnav > ul {
+    height: 2.5em;
+	display: flex;
+    /*Hier worden de mobiele menu items in een display flex geplaatst.*/
+    flex-flow: row nowrap;
+    /*links naar rechts op een enkele regel dus nowrap is op een regel blijven*/
+    justify-content: space-evenly;
+    /*justify is horizontaal*/
+    align-items: center;
+    /*align is verticaal*/
+}
+
+#desktopnav img {
+	height: 1.8em;
+	width: 1.8em;
+}
+
+/*===============================================================
+                Smartphone ( small screens )
+===============================================================*/
+
+@media only screen and (max-width: 40em) { 
+	
+	#desktopnav{
+		display: none;
+	}
+	
+    #desktop-filter{
+        display: none;
+    }
+    
+	body {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 15em 17em;
+		width: 100%;	
+        background-color: #F3E5D8;
+	}
+	
+	header {
+		grid-column: 1;
+		grid-row: 1;
+		height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+	}
+	
+    header > div {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+	h6 {
+        color: #00D66C;
+        font-family: Nexa;
+		font-size: 1.8em;
+	}
+    
+    h1 {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: bold;
+		font-size: 4em;
+	}
+    
+    h6:nth-of-type(2) {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: bold;
+		font-size: 1em;
+        text-indent: 35vw;
+        /*kan niet worden gealigened door flexbox*/
+	}
+    
+    button {
+        background-color: #2800A0;
+        border-width: 0;
+        border-radius: 8px;
+        padding: .3em 3em .3em;
+        color: #fff;
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1em;
+        margin-top: 1em;
+        z-index: 1;
+    }
+    
+    #filter {
+        position: absolute;
+        top: 11em;
+    }
+    
+    .filter-active {
+        display: flex;
+        flex-flow: column;
+        width: auto;
+        align-items: center;
+        z-index: 1;
+        transition-duration: 1s;
+        animation: filter-fill-animation 1s forwards;
+    }
+    
+    @keyframes filter-fill-animation {
+        0% {
+            width: 60vw;
+            padding: .3em 3em .3em;
+        }
+        100% {
+            width: 100vw;
+            padding: .3em 0em;
+        }
+
+    }
+    
+    .filter-content {
+        display: none;
+    } 
+    
+    .filter-content-active {
+        display: inline-block;
+        position: absolute;
+        top: 14em;
+        height: auto;
+        width: 100%;
+        padding: 1em 0;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        display: flex;
+        flex-flow: column;
+        animation-name: filter-content-fill-animation;
+        animation-duration: 1s;
+    }
+    
+    @keyframes filter-content-fill-animation {
+        0% {
+            top: 12em;
+            width: 0%;
+            opacity: 0;
+        }
+        70% {
+            top: 14em;
+            width: 0%;
+        }
+        100% {
+            top: 14em;
+            width: 100%;
+            opacity: 100;
+        }
+
+    }    
+    
+    .filter-content-active div {
+        display: flex;
+        flex-flow: row;
+        width: 80vw;
+        height: 1em;
+        justify-content: center;
+        margin-bottom: .5em;
+        align-items: center;
+        z-index: 1001;
+    }
+    
+    .filter-content-active h2 {
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1em;
+    }
+    
+    .filter-content-active img {
+        height: .6em;
+        width: auto;
+        margin-left: 2em;
+    }
+    
+    .dis{
+        display: none;
+    }
+    
+    .form-active {
+        display: block;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 80vw; 
+    }
+    
+    .filter-content-active span {
+        width: 20vw;
+        height: 0;
+        border: solid 1px #9B9B9B;
+        border-radius: 5px;
+        margin: .5em 0;
+    }
+    
+    .filter-content-active fieldset{
+        display: flex;
+        flex-flow: row;
+    }
+    
+    .filter-content-active label{
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1em;
+        order: 1;
+    }
+
+    .filter-content-active input{
+        order: 2;
+        border-radius: 50%;
+    }
+    
+    .search-button {
+        position: absolute;
+        top: 12em;
+        right: 2.5em;
+        height: 1.8em;
+        width: 2em;
+        z-index: 10001;
+    }
+    
+    .search-button form{
+        display: none;
+        animation: fade-in-opacity 2s forwards;
+    }
+    
+    .search-button-active {
+        position: absolute;
+        left: 0;
+        width: 80vw;
+        margin: 0 10vw;
+        background-color: rgb(40, 0, 160); 
+        border-radius: 8px;
+        padding: .5em 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly; 
+        animation: fade-in-search 1s forwards;
+	}
+    
+    @keyframes fade-in-search {
+        0% {
+            position: absolute;
+            top: 11.8em;
+            left: calc(50vw - 1.5em);
+            width: 2em;
+            background-color: transparent;
+        }
+        100% {
+            position: absolute;
+            top: 11.8em;
+            left: 0;
+            width: 80vw;
+            background-color: rgb(40, 0, 160); 
+        }
+    }
+    
+    @keyframes fade-in-opacity {
+        0% {
+            opacity: 0;
+        }
+        
+        90% {
+            opacity: 0;
+        }
+        
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .search-button-active form {
+        display: block;
+        order: 1;
+    }
+    
+    .search-button-active img {
+        order: 2;
+        height: 1.5em;
+        width: auto;
+    }
+
+    .search-button-active input {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: solid 2px rgba(255, 255, 255, 0);
+        padding: .2em 1em;
+        border-radius: 3px;
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1em;
+        margin: .5em 0;
+        color: #fff;
+    }
+    
+    .search-button-active input:focus {
+        border: solid 2px #fff;
+        transition-duration: 1s;
+    }
+    
+	main {
+		grid-column: 1;
+		grid-row: 2 / end;
+/*Staat in tweede gedeelte van de grid van de body*/
+		display: grid;
+		height: auto;
+		grid-template-columns: 100%;
+		grid-template-rows: 17em auto;
+/*Main verdeel je in tweeen door grid*/
+	}
+    
+	section:first-child {
+/* Uitgelichte verhalen , felxbox container voor items*/
+		background-color: rgba(40, 0, 160, 0.6); 
+        /*0.6 is opacity ( alpha ) */
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+        flex-direction: column;
+        overflow-x: scroll;
+        margin-bottom: 0;
+	}
+    
+    section:first-child > h2 {
+        display: none;
+    }
+    
+	section:first-child > article {
+		height: 85%;
+		width: 90%;
+        margin: 0 5% 0 5%; 
+		background-color: white;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: 45% auto;
+		grid-template-rows: 100%;
+	}
+	
+	section:first-child > article > img {
+		grid-column: 1;
+		grid-row: 1;
+		height: 90%;
+		width: 85%;
+		display: flex;
+		align-self: center;
+        justify-self: center;
+        border-radius: 8px;
+	}
+    
+    .heartbeat {
+        animation: heartbeat 1s forwards;
+	}
+    
+    @keyframes heartbeat {
+        0% {
+            transform: scale( 1);
+        }
+        10% {
+            transform: scale( 0);
+        }
+        20% {
+            transform: scale( 1);
+        }
+        30% {
+            transform: scale( 1.25);
+        }
+        40% {
+            transform: scale( 1);
+        }
+        100% {
+            transform: scale( 1);
+        }
+    }
+    
+    .heartbeat-reverse {
+        animation: heartbeat-reverse 1s forwards;
+	}
+    
+    @keyframes heartbeat-reverse {
+        0% {
+            transform: scale( 1);
+        }
+        10% {
+            transform: scale( 0);
+        }
+        20% {
+            transform: scale( 1);
+        }
+        30% {
+            transform: scale( 1.25);
+        }
+        40% {
+            transform: scale( 1);
+        }
+        100% {
+            transform: scale( 1);
+        }
+    }
+	
+    section:first-child > article > div {
+        grid-column: 2;
+		grid-row: 1;
+        display: flex;
+        flex-direction: column;
+/* Zet titel en tekst onderelkaar */
+        align-self: center;
+        height: 90%;
+        width: 90%;
+    }
+    
+	section:first-child > article > div > h3 {
+		grid-column: 2;
+		grid-row: 1;
+		font-family: Nexa;
+        font-weight: bold;
+		font-size: 1.3em;
+	}
+	
+	section:first-child > article > div > p {
+		grid-column: 2;
+		grid-row: 1;
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1.1em;
+        white-space: normal;
+/* text komt onder elkaar te staan*/
+        overflow-y: scroll;
+	}
+	
+	.background {
+		grid-column: 1;
+		grid-row: 1 / 3;
+/*Begint bij 1 tot en met einde 2*/
+		background-image:url(../images/achtergrondtransavia.jpg);
+		background-position: center;
+		background-size: cover;
+        border-radius: 0 0 10px 10px; 
+		z-index: -1;
+/*Zet op achtergrond*/
+		opacity: .6;
+	}
+    
+    section{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+/*Zet de artikelen onder elkaar*/
+        width: 100vw;/*Zet de artikelen onder elkaar*/
+        margin-bottom: 10em;
+    }
+    
+    section > article {
+		height: 17em;
+		width: 10em;
+        margin: 1em 0.5em 0 0.5em;
+		background-color: white;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 75% auto;/*Deelt de artikelen in 2en*/
+        overflow: hidden;
+	}
+	
+	section > article > img {
+		grid-column: 1;
+		grid-row: 1;
+		height: 90%;
+		width: 85%;
+		display: flex;
+		align-self: center;
+        justify-self: center;
+        border-radius: 8px;
+	}
+    
+    section > article > img:nth-child(2) {
+		grid-column: 1;
+		grid-row: 1;
+		height: 1.8em;
+		width: 1.8em;
+        margin: 1.5em;
+		display: flex;
+		align-self: end;
+        justify-self: end;
+    }
+	
+    section > article > div {/*Is de titel + tekst*/
+        grid-column: 1;
+		grid-row: 2;
+        justify-self: center;
+        width: 85%;
+    }
+    
+	section > article h3 {
+		grid-column: 1;
+		grid-row: 2;
+		font-family: Nexa;
+        font-weight: bold;
+		font-size: 1.3em;
+	}
+	
+	section > article p {
+		grid-column: 1;
+		grid-row: 2;
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1em;
+        text-overflow: ellipsis;/*geeft te lange tekst ...*/
+        overflow: hidden;
+        white-space: nowrap;
+	}
+    
+    #more {
+        display: flex;
+        align-self: flex-start;
+        margin-top: -7em;
+        justify-self: center;
+    }
+    
+    
+/*========================
+    Login form
+========================*/
+    .login {
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 10em auto;
+    }
+    
+    .background-form {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        left: 0;
+        top: 0;
+		background-image:url(../images/achtergrondtransavia.jpg);
+		background-position: center;
+		background-size: cover;
+        border-radius: 0 0 10px 10px; 
+		z-index: -1;
+		opacity: .6;
+    }
+    
+    .aanmelding-container {
+        grid-column: 1;
+        grid-row: 2;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        background-color: rgba(40, 0, 160, 0.6); 
+        /*0.6 is opacity ( alpha ) */
+		border-radius: 10px;
+        margin-bottom: 5em;
+        overflow-y: scroll;
+    }
+    
+    legend {
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1.5em;
+        color: #fff;
+        margin: 1em 0 ;
+    }
+    
+    .aanmelding-container > form {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .aanmelding-container fieldset {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    
+    .aanmelding-container input {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: solid 2px rgba(255, 255, 255, 0);
+        padding: .2em 1em;
+        border-radius: 3px;
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1em;
+        margin: .5em 0;
+    }
+    
+    .aanmelding-container input:focus {
+        border: solid 2px #fff;
+        transition-duration: 1s;
+    }
+    
+    .aanmelding-container label {
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1em;
+        color: #fff;
+    }
+    
+    .aanmelding-container button {
+        width: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+	
+	.aanmelding-container button:hover{
+		background-color: #00D66C;
+		transition-duration: .5s;
+	}
+    
+		.aanmelding-container button:active{
+		background-color: #00D6;
+		transition-duration: .5s;
+	}
+	
+    .aanmelding-container span {
+        height: 0;
+        width: 100%;
+        border: none;
+        border-bottom: solid 1px #fff;
+        margin: 1em 0;
+    }
+    
+    .aanmelding-container h2 {
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1.5em;
+        color: #fff;
+    }
+    
+    .aanmelding-container p, a {
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1em;
+        color: #fff;
+        margin: .5em 0 1.5em 0;
+    }
+    
+    .verhaal {
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+    }
+    
+    .verhaal > img {
+        height: auto;
+        width: 100vw;
+    }
+    
+    .mobile-image {
+        display: block;
+        padding-bottom: 3em;
+    }
+    
+    .tablet-image {
+        display: none;
+    }
+    
+    .desktop-image {
+        display: none;
+    }
+    
+}
+
+
+/*===============================================================
+                Tablets ( medium screens )
+===============================================================*/
+
+@media only screen and (min-width: 40em){ 
+    
+    #mobilenav{
+        display: none;
+    }
+    
+    #desktop-filter{
+        display: none;
+    }
+    
+    body {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 18.5em 28em ;
+		width: 100%;	
+        background-color: #F3E5D8;
+	}
+	
+	header {
+		grid-column: 1;
+		grid-row: 1;
+		height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+	}
+	
+    header > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+	h6 {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: bold;
+		font-size: 2em;
+	}
+    
+    h1 {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: bold;
+		font-size: 6em;
+	}
+    
+    h6:nth-of-type(2) {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1.3em;
+        text-indent: 35vw;
+	}
+    
+    button {
+        background-color: #2800A0;
+        border-width: 0;
+        border-radius: 8px;
+        padding: .3em 3em .3em;
+        color: #fff;
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1.2em;
+        margin-top: 1em;
+    }
+    
+    
+    .filter-active {
+        display: flex;
+        flex-flow: column;
+        width: auto;
+        align-items: center;
+        z-index: 1;
+        transition-duration: 1s;
+        animation: filter-fill-animation 1s forwards;
+    }
+    
+    @keyframes filter-fill-animation {
+        0% {
+            width: 60vw;
+            padding: .3em 3em .3em;
+        }
+        100% {
+            width: 100vw;
+            padding: .3em 0em;
+        }
+
+    }
+    
+    .filter-content {
+        display: none;
+    } 
+    
+    .filter-content-active {
+        display: inline-block;
+        position: absolute;
+        top: 15.5em;
+        height: auto;
+        width: 100%;
+        padding: 1em 0;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        display: flex;
+        flex-flow: column;
+        animation-name: filter-content-fill-animation;
+        animation-duration: 1s;
+    }
+    
+    @keyframes filter-content-fill-animation {
+        0% {
+            top: 12em;
+            width: 0%;
+            opacity: 0;
+        }
+        70% {
+            top: 15.5em;
+            width: 0%;
+        }
+        100% {
+            top: 15.5em;
+            width: 100%;
+            opacity: 100;
+        }
+
+    }    
+    
+    .filter-content-active div {
+        display: flex;
+        flex-flow: row;
+        width: 80vw;
+        height: 1em;
+        justify-content: center;
+        margin-bottom: .5em;
+        align-items: center;
+        z-index: 1001;
+    }
+    
+    .filter-content-active h2 {
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1em;
+    }
+    
+    .filter-content-active img {
+        height: .6em;
+        width: auto;
+        margin-left: 2em;
+    }
+    
+    .dis{
+        display: none;
+    }
+    
+    .form-active {
+        display: block;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        width: 80vw; 
+    }
+    
+    .filter-content-active span {
+        width: 20vw;
+        height: 0;
+        border: solid 1px #9B9B9B;
+        border-radius: 5px;
+        margin: .5em 0;
+    }
+    
+    .filter-content-active fieldset{
+        display: flex;
+        flex-flow: row;
+    }
+    
+    .filter-content-active label{
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1em;
+        order: 1;
+    }
+
+    .filter-content-active input{
+        order: 2;
+        border-radius: 50%;
+    }
+    
+    
+    
+    .search-button {
+        position: absolute;
+        top: 13.5em;
+        right: 25vw;
+        height: 2em;
+        width: 2em;
+        z-index: 10001;
+    }
+    
+    .search-button form{
+        display: none;
+        animation: fade-in-opacity 3s forwards;
+    }
+    
+    .search-button-active {
+        position: absolute;
+        left: 0;
+        width: 80vw;
+        margin: 0 10vw;
+        background-color: rgb(40, 0, 160); 
+        border-radius: 8px;
+        padding: .5em 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly; 
+        animation: fade-in-search 1s forwards;
+	}
+    
+    @keyframes fade-in-search {
+        0% {
+            position: absolute;
+            top: 13em;
+            left: calc(50vw - 25vw);
+            width: 2em;
+            background-color: transparent;
+        }
+        100% {
+            position: absolute;
+            top: 13em;
+            left: 0;
+            width: 80vw;
+            background-color: rgb(40, 0, 160); 
+        }
+    }
+    
+    @keyframes fade-in-opacity {
+        0% {
+            opacity: 0;
+        }
+        
+        90% {
+            opacity: 0;
+        }
+        
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .search-button-active form {
+        display: block;
+        order: 1;
+    }
+    
+    .search-button-active img {
+        order: 2;
+        height: 2em;
+        width: auto;
+    }
+
+    .search-button-active input {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: solid 2px rgba(255, 255, 255, 0);
+        width: 60vw;
+        padding: .2em 1em;
+        border-radius: 3px;
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1em;
+        margin: .5em 0;
+        color: #fff;
+    }
+    
+    .search-button-active input:focus {
+        border: solid 2px #fff;
+        transition-duration: 1s;
+    }
+    
+    
+	main {
+		grid-column: 1;
+		grid-row: 2 / end;
+		display: grid;
+		height: auto;
+		grid-template-columns: 100%;
+		grid-template-rows: 28em auto 11em;
+	}
+    
+	section:first-child {
+		background-color: rgba(40, 0, 160, 0.6); /*0.5 is opacity ( alpha )*/
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        overflow-x: scroll;
+	}
+    
+    section:first-child > h2 {
+        display: none;
+    }
+    
+	section:first-child > article {
+        height: 22.4em;
+		width: 14.4em;
+        margin: 0 1.6% 0 1.6%; 
+		background-color: white;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 75% auto;
+        overflow: hidden;
+	}
+	
+	section:first-child > article > img {
+		grid-column: 1;
+		grid-row: 1;
+		height: 90%;
+		width: 85%;
+		display: flex;
+		align-self: center;
+        justify-self: center;
+        border-radius: 8px;
+	}
+    
+    .heartbeat {
+        animation: heartbeat 1s forwards;
+	}
+    
+    @keyframes heartbeat {
+        0% {
+            transform: scale( 1);
+        }
+        10% {
+            transform: scale( 0);
+        }
+        20% {
+            transform: scale( 1);
+        }
+        30% {
+            transform: scale( 1.25);
+        }
+        40% {
+            transform: scale( 1);
+        }
+        100% {
+            transform: scale( 1);
+        }
+    }
+    
+    .heartbeat-reverse {
+        animation: heartbeat-reverse 1s forwards;
+	}
+    
+    @keyframes heartbeat-reverse {
+        0% {
+            transform: scale( 1);
+        }
+        10% {
+            transform: scale( 0);
+        }
+        20% {
+            transform: scale( 1);
+        }
+        30% {
+            transform: scale( 1.25);
+        }
+        40% {
+            transform: scale( 1);
+        }
+        100% {
+            transform: scale( 1);
+        }
+    }
+	
+    section:first-child > article > div {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        height: 90%;
+        width: 90%;
+    }
+    
+	section:first-child > article > div > h3 {
+		grid-column: 2;
+		grid-row: 1;
+		font-family: Nexa;
+        font-weight: bold;
+		font-size: 1.3em;
+	}
+	
+	section:first-child > article > div > p {
+		grid-column: 2;
+		grid-row: 1;
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1.1em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+	}
+	
+	.background {
+		grid-column: 1;
+		grid-row: 1 / 3;
+		background-image:url(../images/achtergrondtransavia.jpg);
+		background-position: center;
+		background-size: cover;
+        border-radius: 0 0 10px 10px; 
+		z-index: -1;
+		opacity: .6;
+	}
+    
+    section{
+        display: flex;
+        height: 100%;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    section > article {
+		height: 22.4em;
+		width: 14.4em;
+        margin: 5% 1.6% 0 1.6%; 
+		background-color: white;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 75% auto;
+        overflow: hidden;
+	}
+	
+	section > article > img {
+		grid-column: 1;
+		grid-row: 1;
+		height: 90%;
+		width: 85%;
+		display: flex;
+		align-self: center;
+        justify-self: center;
+        border-radius: 8px;
+	}
+    
+    section > article > img:nth-child(2) {
+		grid-column: 1;
+		grid-row: 1;
+		height: 1.8em;
+		width: 1.8em;
+        margin: 1.5em;
+		display: flex;
+		align-self: end;
+        justify-self: end;
+    }
+	
+    section > article > div {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        width: 85%;
+    }
+    
+	section > article > div > h3 {
+		grid-column: 1;
+		grid-row: 2;
+		font-family: Nexa;
+        font-weight: bold;
+		font-size: 1.3em;
+	}
+	
+	section > article > div > p {
+		grid-column: 2;
+		grid-row: 1;
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+	}
+    
+    #more {
+        display: flex;
+        align-self: flex-end;
+        margin-bottom: 20%;
+        justify-self: center;
+    }
+    
+    .verhaal {
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+    }
+    
+    .verhaal > img {
+        height: auto;
+        width: 100vw;
+    }
+    
+    .mobile-image {
+        display: none;
+    }
+    
+    .tablet-image {
+        display: block;
+    }
+    
+    .desktop-image {
+        display: none;
+    }
+    
+    
+/*========================
+    Login form
+========================*/
+    .login {
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 10em auto;
+    }
+    
+    .background-form {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        left: 0;
+        top: 0;
+		background-image:url(../images/achtergrondtransavia.jpg);
+		background-position: center;
+		background-size: cover;
+        border-radius: 0 0 10px 10px; 
+		z-index: -1;
+		opacity: .6;
+    }
+    
+    .aanmelding-container {
+        grid-column: 1;
+        grid-row: 2;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        background-color: rgba(40, 0, 160, 0.6); 
+        /*0.6 is opacity ( alpha ) */
+		border-radius: 10px;
+        margin-bottom: 5em;
+        overflow-y: scroll;
+    }
+	
+	input:valid {
+		background-color: 00D66C; 
+	}
+	
+	input:invalid {
+		border-color: #F00;
+	}
+    
+    legend {
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1.5em;
+        color: #fff;
+        margin: 1em 0 ;
+    }
+    
+    .aanmelding-container > form {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .aanmelding-container fieldset {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+    
+    .aanmelding-container input {
+        background-color: rgba(255, 255, 255, 0.5);
+        border: solid 2px rgba(255, 255, 255, 0);
+        padding: .2em 1em;
+        border-radius: 3px;
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1em;
+        margin: .5em 0;
+    }
+    
+    .aanmelding-container input:focus {
+        border: solid 2px #fff;
+        transition-duration: 1s;
+    }
+    
+    .aanmelding-container label {
+        font-family: Nexa;
+        font-weight: light;
+		font-size: 1em;
+        color: #fff;
+    }
+    
+    .aanmelding-container button {
+        width: auto;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .aanmelding-container span {
+        height: 0;
+        width: 100%;
+        border: none;
+        border-bottom: solid 1px #fff;
+        margin: 1em 0;
+    }
+    
+    .aanmelding-container h2 {
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1.5em;
+        color: #fff;
+    }
+    
+    .aanmelding-container p, a {
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1em;
+        color: #fff;
+        margin: .5em 0 1.5em 0;
+    }
+    
+}
+
+
+/*===============================================================
+                Desktop ( Large screens )
+===============================================================*/
+
+@media only screen and (min-width: 64.063em) {
+    #mobilenav{
+        display: none;
+    }
+    
+    #filter{
+        display: none;
+    }
+    
+    .search-button {
+        display: none;
+    }
+    
+    body {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 13em 28em ;
+        width: 100%;	
+        background-color: #F3E5D8;
+	}
+	
+	header {
+		grid-column: 1;
+		grid-row: 1;
+		height: 100%;
+        display: grid;
+        grid-template-columns: 50vw 50vw;
+        grid-template-rows: 100%;
+	}
+    
+    header > div {
+        grid-column: 1;
+        grid-row: 1;
+        width: 40vw;
+        margin-left: 10vw;
+        display: flex;
+        align-items: left;
+    }
+	
+	h6 {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: bold;
+		font-size: 2em;
+	}
+    
+    h1 {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: bold;
+		font-size: 6em;
+	}
+    
+    h6:nth-of-type(2) {
+        color: #00D66C;
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1.3em;
+        text-indent: 20em;
+	}
+    
+    #desktopnav {
+        position: fixed;
+        right: 2%;
+        top: 2%;
+        width: 30em;
+        height: 2.5em;
+        border-radius: 10px;
+        padding: 0.3em 0.3em;
+        z-index: 10;
+        /*	hiermee zet je navigatie boven alles*/
+    }
+
+    #desktop-filter{
+        display: flex;
+        justify-self: center;
+        /*	centreren in het midden */
+        align-self: center;
+        /*	centeren op de verticale lijn*/
+    }
+    
+    button {
+        background-color: #2800A0;
+        border-width: 0;
+        border-radius: 8px;
+        padding: .3em 3em .3em;
+        color: #fff;
+        font-family: Nexa;
+        font-weight: normal;
+		font-size: 1.2em;
+        margin-top: 0;
+    }
+    
+	main {
+		grid-column: 1;
+		grid-row: 2 / end;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 28em auto 11em;
+	}
+    
+	section:first-child {
+		background-color: rgba(40, 0, 160, 0.6); /*0.5 is opacity ( alpha )*/
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: scroll;
+        padding: 0 10em 0 10em;
+        margin: 0;
+	}
+    
+    section:first-child > article {
+        height: 22.4em;
+		width: 14.4em;
+        margin: 1% 1.6% 0 1.6%; 
+		background-color: white;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 75% auto;
+        overflow: hidden;
+	}
+	
+	section:first-child > article > img {
+		grid-column: 1;
+		grid-row: 1;
+		height: 90%;
+		width: 85%;
+		display: flex;
+		align-self: center;
+        justify-self: center;
+        border-radius: 8px;
+		
+	}
+	
+    section:first-child > article > div {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        height: 90%;
+        width: 85%;
+    }
+    
+	section:first-child > article > div > h3 {
+		grid-column: 2;
+		grid-row: 1;
+		font-family: Nexa;
+        font-weight: bold;
+		font-size: 1.3em;
+	}
+	
+	section:first-child > article > div > p {
+		grid-column: 2;
+		grid-row: 1;
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1.1em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+	}
+	
+	.background {
+		grid-column: 1;
+		grid-row: 1 / 3;
+		background-image:url(../images/achtergrondtransavia.jpg);
+		background-position: center;
+		background-size: cover;
+        border-radius: 0 0 10px 10px; 
+		z-index: -1;
+		opacity: .6;
+	}
+    
+    section{
+        display: flex;
+        align-content: center;
+        padding: 0 10em 0 10em;
+        margin-top: 2%;
+    }
+    
+    section > article {
+		height: 22.4em;
+		width: 14.4em;
+		background-color: white;
+		border-radius: 10px;
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: 75% auto;
+        overflow: hidden;
+	}
+	
+	section > article > img {
+		grid-column: 1;
+		grid-row: 1;
+		height: 90%;
+		width: 85%;
+		display: flex;
+		align-self: center;
+        justify-self: center;
+        border-radius: 8px;
+	}
+    
+    section > article > img:nth-child(2) {
+		grid-column: 1;
+		grid-row: 1;
+		height: 1.8em;
+		width: 1.8em;
+        margin: 1.5em;
+		display: flex;
+		align-self: end;
+        justify-self: end;
+    }
+	
+    section > article > div {
+        display: flex;
+        flex-direction: column;
+        justify-self: center;
+        width: 85%;
+    }
+    
+	section > article > div > h3 {
+		grid-column: 1;
+		grid-row: 2;
+		font-family: Nexa;
+        font-weight: bold;
+		font-size: 1.3em;
+	}
+	
+	section > article > div > p {
+		grid-column: 2;
+		grid-row: 1;
+        font-family: Nexa;
+        font-weight: thin;
+		font-size: 1em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+	}
+    
+    #more {
+        display: flex;
+        align-self: flex-end;
+        margin-bottom: 20%;
+        justify-self: center;
+    }
+    
+    .verhaal {
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+    }
+    
+    .verhaal > img {
+        height: auto;
+        width: 100vw;
+    }
+    
+    .mobile-image {
+        display: none;
+    }
+    
+    .tablet-image {
+        display: none;
+    }
+    
+    .desktop-image {
+        display: block;
+    }
+    
+}
